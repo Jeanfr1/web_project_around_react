@@ -1,0 +1,71 @@
+.img-popup {
+  display: none;
+  max-width: 75vw;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  z-index: 9999;
+}
+
+.img-popup_opened {
+  display: flex;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.img-popup__container {
+  position: relative;
+  margin: 0;
+}
+
+.img-popup__preview {
+  width: 100%;
+  height: 100%;
+  max-width: 75vw;
+  max-height: 75vh;
+}
+
+.img-popup__title {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  margin: 0;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.28;
+}
+
+.img-popup__btn-close {
+  position: absolute;
+  top: -37px;
+  right: -37px;
+  width: 30px;
+  height: 30px;
+  background: transparent url("../images/Close-Icon.svg") no-repeat center/30px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.img-popup__btn-close:hover {
+  opacity: 0.6;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 920px) and (max-height: 420px),
+  screen and (max-width: 620px) {
+  .img-popup__btn-close {
+    top: -30px;
+    right: -30px;
+    width: 26px;
+    height: 26px;
+    background-size: 26px;
+  }
+}

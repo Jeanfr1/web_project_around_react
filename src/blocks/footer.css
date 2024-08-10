@@ -1,0 +1,30 @@
+.footer {
+  display: flex;
+  justify-content: flex-start;
+  width: 880px;
+  margin: auto auto 40px;
+}
+
+.footer__info {
+  font-size: 18px;
+  line-height: 1.21;
+  font-weight: 400;
+}
+
+@media screen and (max-width: 920px) {
+  .footer {
+    max-width: 580px;
+    margin: 0 0 40px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .footer {
+    justify-content: center;
+    max-width: 300px;
+  }
+
+  .footer__info {
+    font-size: 14px;
+  }
+}

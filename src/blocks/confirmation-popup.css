@@ -1,0 +1,109 @@
+.confirmation-popup {
+  display: none;
+  width: 430px;
+  height: 181px;
+  padding: 0;
+  border: none;
+  border-radius: 10px;
+  background-color: #ffffff;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.confirmation-popup_opened {
+  display: flex;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  flex-direction: column;
+  align-items: center;
+}
+
+.confirmation-popup__container {
+  display: flex;
+  flex-direction: column;
+  width: 358px;
+  margin: 0;
+  background-color: #ffffff;
+  overflow: visible;
+}
+
+.confirmation-popup__title {
+  margin: 4px 0 38px;
+  width: 100%;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1.21;
+  color: #000000;
+}
+
+.confirmation-popup__btn-submit {
+  width: 100%;
+  height: 50px;
+  border: none;
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.21;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.confirmation-popup__btn-submit:hover {
+  opacity: 0.8;
+}
+
+.confirmation-popup__btn-close {
+  position: absolute;
+  top: -37px;
+  left: 433px;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  background: transparent url("../images/Close-Icon.svg") no-repeat center/30px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.confirmation-popup__btn-close:hover {
+  opacity: 0.6;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 920px) and (max-height: 420px) {
+  .confirmation-popup {
+    height: 170px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .confirmation-popup {
+    width: 282px;
+    height: 170px;
+  }
+
+  .confirmation-popup__container {
+    width: 238px;
+  }
+
+  .confirmation-popup__title {
+    font-size: 18px;
+    width: 100%;
+  }
+
+  .confirmation-popup__btn-submit {
+    font-size: 14px;
+  }
+
+  .confirmation-popup__btn-close {
+    top: -38px;
+    left: 256px;
+    width: 26px;
+    height: 26px;
+    background-size: 26px;
+  }
+}
