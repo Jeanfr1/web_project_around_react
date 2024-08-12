@@ -18,17 +18,18 @@ export default function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
   });
 
   useEffect(() => {
-    setName(currentUser.name);
-    setAbout(currentUser.about);
-  }, [currentUser]);
+    if (isOpen) {
+      setName(currentUser.name);
+      setAbout(currentUser.about);
+      // Atualiza a validação dos campos com base nos valores iniciais
+      setValidForm({
+        name: currentUser.name.length >= 2 && currentUser.name.length <= 40,
+        about: currentUser.about.length >= 2 && currentUser.about.length <= 200,
+      });
+    }
+  }, [currentUser, isOpen]);
 
-  useEffect(() => {
-    // Aqui atualizamos a validade geral do formulário
-    const isValid = validForm.name && validForm.about;
-    setIsFormValid(isValid);
-  }, [validForm]);
-
-  const [isFormValid, setIsFormValid] = useState(false);
+  const isValidForm = validForm.name && validForm.about;
 
   const handleNameChange = (evt) => {
     setName(evt.target.value);
@@ -56,6 +57,7 @@ export default function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    if (!isValidForm) return; // Impede o submit se o formulário não for válido
     setLoading(true);
 
     onUpdateUser({
@@ -72,7 +74,7 @@ export default function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
-      isValid={isFormValid} // Passando o valor booleano
+      isValid={isValidForm} // Passa o valor booleano para isValid
     >
       <input
         className={

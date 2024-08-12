@@ -31,13 +31,13 @@ export default function PopupWithForm({
           ></button>
           <button
             className={
-              isValid()
+              isValid
                 ? `${name}-popup__btn-submit`
                 : `${name}-popup__btn-submit ${name}-popup__btn-submit_inactive`
             }
             id={`btn-submit-${name}`}
             type="submit"
-            disabled={!isValid()}
+            disabled={!isValid} // Agora é tratado corretamente como boolean
           >
             {buttonText}
           </button>
