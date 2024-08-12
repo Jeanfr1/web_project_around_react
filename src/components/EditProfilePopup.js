@@ -21,7 +21,7 @@ export default function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
     if (isOpen) {
       setName(currentUser.name);
       setAbout(currentUser.about);
-      // Atualiza a validação dos campos com base nos valores iniciais
+
       setValidForm({
         name: currentUser.name.length >= 2 && currentUser.name.length <= 40,
         about: currentUser.about.length >= 2 && currentUser.about.length <= 200,
@@ -57,7 +57,7 @@ export default function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    if (!isValidForm) return; // Impede o submit se o formulário não for válido
+    if (!isValidForm) return;
     setLoading(true);
 
     onUpdateUser({
@@ -74,7 +74,7 @@ export default function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
-      isValid={isValidForm} // Passa o valor booleano para isValid
+      isValid={isValidForm}
     >
       <input
         className={
